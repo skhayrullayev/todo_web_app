@@ -7,9 +7,19 @@
 </div>
 
 <div class="card-body">
+    {% if form.errors %}
+    <p class='error'>Username or Password is wrong</p>
+    {% endif %}
     <form action="" method='POST'>{% csrf_token %}
-        {{ form.as_p }}
-        <input class="button" type="submit" value='login'>
+
+        <label>{{ form.username.label }}</label>
+        {{ form.username }}
+
+        <label>{{ form.password.label }}</label>
+        {{ form.password }}
+        
+        <br>
+        <input style="margin-top: 10px;" class="button" type="submit" value='login'>
     </form>
 
     <p>Do not have an account? <a href="{% url 'signup' %}">SignUp</a></p>
