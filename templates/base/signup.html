@@ -10,13 +10,32 @@
     <form action="" method='POST'>{% csrf_token %}
         <label>{{ form.username.label }}</label>
         {{ form.username }}
+        <small class="text-muted">{{ form.username.help_text }}</small>
+        {% if form.username.errors %}
+            {% for error in form.username.errors %}
+            <p class="error">{{ error }}</p>
+            {% endfor %}
+        {% endif %}
 
         <label>{{ form.password1.label }}</label>
         {{ form.password1 }}
+        <small class="text-muted">{{ form.password1.help_text }}</small>
+        {% if form.password1.errors %}
+            {% for error in form.password1.errors %}
+            <p class="error">{{ error }}</p>
+            {% endfor %}
+        {% endif %}
 
         <label>{{ form.password2.label }}</label>
         {{ form.password2 }}
-
+        <small class="text-muted">{{ form.password2.help_text }}</small>
+        {% if form.password2.errors %}
+            {% for error in form.password2.errors %}
+            <p class="error">{{ error }}</p>
+            {% endfor %}
+        {% endif %}
+        
+        <br>
         <input style="margin-top: 10px;" class="button" type="submit" value='SignUp'>
     </form>
     <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>

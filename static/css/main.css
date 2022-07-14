@@ -128,3 +128,17 @@ label {
 .card-body {
     padding: 20px;
 }
+
+.error {
+    color:#FF6B6B;
+}
+
+.errorlist {
+    color:#FF6B6B;
+}
+
+.text-muted { 
+    color: $text-muted !important;
+    font-size: 12px;
+    color: #7C7C7C; 
+}
